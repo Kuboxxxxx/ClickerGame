@@ -107,6 +107,9 @@ table:active {
 
 #upgradeContainer {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
 }
 
 .upgradeName {
@@ -129,6 +132,7 @@ table:active {
 #tooltipContent {
     position: absolute;
     top: 100%;
+    z-index: 1;
     right: 0;
     width: 300px;
     display: none;
@@ -253,6 +257,8 @@ footer{
         width: 100%;
     }
 
+
+
     .gameCanvas{
         display: flex;
         flex-wrap: wrap;
@@ -264,5 +270,9 @@ footer{
 
     table img {
         margin-right: 5px;
+    }
+    
+    #reset {
+        margin-bottom: 3rem;
     }
 }
