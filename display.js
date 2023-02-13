@@ -7,7 +7,7 @@ import { bambooScoreDisplay, bambooPerSecondDisplay, versionDisplay } from "./se
 export const display = {
     updateScore: function(){
         bambooScoreDisplay.innerHTML = (Math.round(game.bamboo * 10) / 10).toLocaleString()
-        //document.title = `${Math.round(game.bamboo * 10) / 10} bamboo - Bamboo clicker`
+        document.title = `${Math.round(game.bamboo * 10) / 10} bamboo - Bamboo clicker`
         bambooPerSecondDisplay.innerHTML = game.getBambooPerSecond()
     },
     udpateShop: function(){
@@ -21,10 +21,10 @@ export const display = {
         for (let i=0; i < upgrade.name.length; i++){
             if (!upgrade.purchased[i]) {
                 if (upgrade.type[i] == "building" && building.amount[upgrade.buildingIndex[i]] >= upgrade.requirement[i]){
-                    upgradeContainer.innerHTML += `<img src="./img/${upgrade.image[i]}" class="upgradeTile" title="${upgrade.name[i]} &#10; ${upgrade.description[i]} &#10; ${upgrade.cost[i].toLocaleString()} bamboo" index="${i}">`
+                    upgradeContainer.innerHTML += `<div id="tooltip"><img src="./img/${upgrade.image[i]}" class="upgradeTile" index="${i}"><div id="tooltipContent"><p class="upgradeName">${upgrade.name[i]}</p>${upgrade.description[i]}<p class="upgradeCost">${upgrade.cost[i].toLocaleString()} bamboo</p></div></div>`
                 }
                 else if (upgrade.type[i] == "click" && game.totalClicks >= upgrade.requirement[i]){
-                    upgradeContainer.innerHTML += `<img src="./img/${upgrade.image[i]}" class="upgradeTile" title="${upgrade.name[i]} &#10; ${upgrade.description[i]} &#10; ${upgrade.cost[i].toLocaleString()} bamboo" index="${i}">`
+                    upgradeContainer.innerHTML += `<div id="tooltip"><img src="./img/${upgrade.image[i]}" class="upgradeTile" index="${i}"><div id="tooltipContent"><p class="upgradeName">${upgrade.name[i]}</p>${upgrade.description[i]}<p class="upgradeCost">${upgrade.cost[i].toLocaleString()} bamboo</p></div></div>`
                 }
             }
         }
@@ -41,6 +41,6 @@ export const display = {
         }
     },
     updateVersion: function(){
-        versionDisplay.innerHTML = `V. ${game.version}`
+        versionDisplay.innerHTML = `V. 0.2 &copy; <a href="https://kuboxxxxx.github.io/">Jakub Szpyra</a> 2023`
     }
 }
