@@ -8,12 +8,12 @@ export const display = {
     updateScore: function(){
         bambooScoreDisplay.innerHTML = (Math.round(game.bamboo * 10) / 10).toLocaleString()
         document.title = `${Math.round(game.bamboo * 10) / 10} bamboo - Bamboo clicker`
-        bambooPerSecondDisplay.innerHTML = game.getBambooPerSecond()
+        bambooPerSecondDisplay.innerHTML = (game.getBambooPerSecond()).toLocaleString()
     },
     udpateShop: function(){
         shopContainer.innerHTML = ""
         for (let i=0; i < building.name.length; i++){
-            shopContainer.innerHTML += `<table id="${building.name[i]}" class="unselectable" index="${i}"><tr index="${i}"><td class="image" index="${i}"><img src="./img/${building.image[i]}" index="${i}"></td><td index="${i}">Bamboo ${building.name[i]}</td><td index="${i}">[<span index="${i}">${building.cost[i].toLocaleString()}</span> bamboo]:</td><td index="${i}"><span index="${i}">${building.amount[i].toLocaleString()}</span></td></tr></table>`
+            shopContainer.innerHTML += `<div id="tooltip"><table id="${building.name[i]}" class="unselectable" index="${i}"><tr index="${i}"><td class="image" index="${i}"><img src="./img/${building.image[i]}" index="${i}"></td><td index="${i}">Bamboo ${building.name[i]}</td><td index="${i}">[<span index="${i}">${building.cost[i].toLocaleString()}</span> bamboo]:</td><td index="${i}"><span index="${i}">${building.amount[i].toLocaleString()}</span></td></tr><div id="tooltipContentShop"><p>Each Bamboo ${building.name[i]} gives you <b>${building.income[i].toLocaleString()}</b></p><p>Current income: <b>${(building.amount[i] * building.income[i].toLocaleString())}</b></p></div></div></table>`
         }
     },
     updateUpgrades: function(){
@@ -41,6 +41,6 @@ export const display = {
         }
     },
     updateVersion: function(){
-        versionDisplay.innerHTML = `V. 0.2 &copy; <a href="https://kuboxxxxx.github.io/">Jakub Szpyra</a> 2023`
+        versionDisplay.innerHTML = `V. 0.3 &copy; <a href="https://kuboxxxxx.github.io/">Jakub Szpyra</a> 2023`
     }
 }

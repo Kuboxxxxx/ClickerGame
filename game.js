@@ -7,7 +7,7 @@ export const game = {
     totalClicks: 0,
     clickingPower: 1,
     totalCoins: 0,
-    version: 0.2,
+    version: 0.3,
     addBamboo: function(){
         this.bamboo += this.clickingPower
         this.totalBamboo += this.clickingPower

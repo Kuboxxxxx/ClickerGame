@@ -141,7 +141,23 @@ table:active {
     border-image: url(./img/borderfull.png) 10 round;
 }
 
+#tooltipContentShop {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    right: 100%;
+    width: 300px;
+    display: none;
+    background-image: url(./img/bamboobg.png);
+    border: solid 10px transparent;
+    border-image: url(./img/borderfull.png) 10 round;
+}
+
 #tooltip:hover #tooltipContent {
+    display: block;
+}
+
+#tooltip:hover #tooltipContentShop {
     display: block;
 }
 
